@@ -60,7 +60,7 @@ You can get a list of all board ids in the system  via the endpoint:
   - `POST /api/Board`: this endpoint will reguire the board name and the initial state as a int[,] matrix. Eg.
 ```json
 {
-    "name": "Beehive",
+    "boardName": "Beehive",
     "initialState": [
         [ 0,0,0,0,0,0 ],
         [ 0,0,1,1,0,0 ],

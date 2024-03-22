@@ -1,5 +1,6 @@
 ﻿using ConwaysGameofLife.API.Models;
 using ConwaysGameofLife.Application.Commands;
+using ConwaysGameofLife.Domain.Exceptions;
 using ConwaysGameofLife.Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -56,7 +57,16 @@ namespace ConwaysGameofLife.API.Controllers
         [ProducesResponseType(typeof(ResponseModel<IEnumerable<BoardListEntry>>), StatusCodes.Status201Created)]
         public async Task<IActionResult> Post(CreateBoardRequestModel model)
         {
-            var boardId = await _mediator.Send(new AddBoardCommand(model.Name, model.InitialState));
+            if (string.IsNullOrWhiteSpace(model.BoardName))
+            {
+                throw new BoardNameMissingException();
+            }
+            if (model.InitialState == null)
+            {
+                throw new BoardInitialStateMissingException();
+            }
+
+            var boardId = await _mediator.Send(new AddBoardCommand(model.BoardName, model.InitialState));
 
             return Created(new CreateBoardResponseModel(boardId));
         }
@@ -71,6 +81,16 @@ namespace ConwaysGameofLife.API.Controllers
         [ProducesResponseType(typeof(ResponseModel<IEnumerable<BoardListEntry>>), StatusCodes.Status201Created)]
         public async Task<IActionResult> PostFile([FromForm] UploadBoardRequestModel model)
         {
+            if (string.IsNullOrWhiteSpace(model.BoardName))
+            {
+                throw new BoardNameMissingException();
+            }
+
+            if (model.BoardData == null)
+            {
+                throw new BoardInitialStateMissingException();
+            }
+
             // Read file contents
             using var fileStream = model.BoardData.OpenReadStream();
             using var streamReader = new StreamReader(fileStream);

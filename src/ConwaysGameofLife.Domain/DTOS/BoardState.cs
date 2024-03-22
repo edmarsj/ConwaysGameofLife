@@ -22,13 +22,19 @@ namespace ConwaysGameofLife.Domain.DTOS
             var lines = fileContent.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
             // We want files with more than one line
-            if (lines.Length == 1)
+            if (lines.Length < 2)
             {
                 throw new InvalidBoardFileException();
             }
 
             // Uses the first row to identify the number of collumns
             var numCols = lines.First().Length;
+
+            // We want files with more than one column
+            if (numCols < 2)
+            {
+                throw new InvalidBoardFileException();
+            }
 
             var state = new int[numCols, lines.Length];
 
@@ -61,6 +67,15 @@ namespace ConwaysGameofLife.Domain.DTOS
         public static BoardState FromMatrix(int[,] state)
         {
             var currentState = new BoardState();
+
+            if (state.GetLength(0) < 2)
+            {
+                throw new BoardInitialStateMissingException();
+            }
+            if (state.GetLength(1) < 2)
+            {
+                throw new BoardInitialStateMissingException();
+            }
 
             for (int x = 0; x < state.GetLength(0); x++)
             {
@@ -206,7 +221,7 @@ namespace ConwaysGameofLife.Domain.DTOS
 
             return newState;
         }
-        
+
         /// <summary>
         /// Add a new cell to the state or update an existing cell setting it as alive if it is dead
         /// This function does not update an alive cell to dead. 
