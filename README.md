@@ -34,7 +34,7 @@ You can either run the project on visual studio or via dotnet cli:
 
 ```powershell
 # build
-dotnet buid ConwaysGameofLife.sln
+dotnet build ConwaysGameofLife.sln
 # run unit tests
 dotnet test ConwaysGameofLife.sln
 # run api project
@@ -80,3 +80,4 @@ You can get a list of all board ids in the system  via the endpoint:
 00000
   ```
   There are sample of supported files int `/samplePatterns` folder. 
+  - By default the endpoints will return the board state in ascii characters, some endpoints allow you to return a matrix instead
