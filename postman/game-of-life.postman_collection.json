@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "4bde7505-d72a-4b69-8afa-b4a3e1a7a4b7",
+		"name": "Game Of Life",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "550418"
+	},
+	"item": [
+		{
+			"name": "Add beeHive",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Beehive\",\r\n  \"initialState\": [\r\n  [ 0,0,0,0,0,0 ],\r\n  [ 0,0,1,1,0,0 ],\r\n  [ 0,1,0,0,1,0 ],\r\n  [ 0,0,1,1,0,0 ],\r\n  [ 0,0,0,0,0,0 ]\r\n]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44340/api/Board",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Glider",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Glider 2\",\r\n  \"initialState\": [\r\n    [ 0,0,0,0,0 ],\r\n    [ 0,0,1,0,0 ],\r\n    [ 0,0,0,1,0 ],\r\n    [ 0,1,1,1,0 ],\r\n    [ 0,0,0,0,0 ]\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44340/api/Board",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Pulsar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pulsar\",\r\n  \"initialState\": [\r\n    [ 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0 ],\r\n    [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n    [ 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 ],\r\n    [ 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 ],\r\n    [ 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 ],\r\n    [ 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0 ],\r\n    [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n    [ 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0 ],\r\n    [ 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 ],\r\n    [ 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 ],\r\n    [ 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 ],\r\n    [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n    [ 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0 ]\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44340/api/Board",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "BoardName",
+							"value": "uploaded",
+							"type": "text"
+						},
+						{
+							"key": "BoardData",
+							"type": "file",
+							"src": "/D:/git/ConwaysGameofLife/SamplePatterns/gosper-glider-gun.mak"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44340/api/Board/upload",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Complex",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Complex\",\r\n  \"initialState\": [\r\n    [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0 ],\r\n[ 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0 ],\r\n[ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  ],\r\n[ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0 ],\r\n[ 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0 ],\r\n[ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 ],\r\n[ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 ]\r\n\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44340/api/Board",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/Board",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next n Generations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/Board/fa362f81-0717-4e01-b8c1-21c6a10a3d38/next?numGenerations=1000",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board",
+						"fa362f81-0717-4e01-b8c1-21c6a10a3d38",
+						"next"
+					],
+					"query": [
+						{
+							"key": "numGenerations",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/Board/47e03533-20ec-4181-ba97-1302daa4dfbe/generation/2?outputType=ascii",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board",
+						"47e03533-20ec-4181-ba97-1302daa4dfbe",
+						"generation",
+						"2"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "ascii"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Final Generation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/Board/fa362f81-0717-4e01-b8c1-21c6a10a3d38/final?outputType=matrix&maxGenerations=1024",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board",
+						"fa362f81-0717-4e01-b8c1-21c6a10a3d38",
+						"final"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "matrix"
+						},
+						{
+							"key": "maxGenerations",
+							"value": "1024"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44340/api/Board/725e0e4a-0741-4f81-97b5-8b3013347f73",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44340",
+					"path": [
+						"api",
+						"Board",
+						"725e0e4a-0741-4f81-97b5-8b3013347f73"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
